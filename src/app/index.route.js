@@ -10,9 +10,14 @@
     $stateProvider
       .state('home', {
         url: '/',
-        templateUrl: 'app/main/main.html',
-        controller: 'MainController',
-        controllerAs: 'main'
+        templateUrl: 'app/posts/posts.html',
+        controller: 'PostsController',
+        controllerAs: 'vm',
+        resolve: {
+          posts: function(postsFactory) {
+            return postsFactory.get();
+          }
+        }
       });
 
     $urlRouterProvider.otherwise('/');

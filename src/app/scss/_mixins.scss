@@ -1,0 +1,36 @@
+// Border radius
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+          border-radius: $radius;
+
+  background-clip: padding-box;
+}
+
+
+// List with no bullets
+@mixin no-bullets() {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+
+// Placeholder text
+@mixin placeholder {
+  .form-control::-webkit-input-placeholder {@content}
+  .form-control:-moz-placeholder           {@content}
+  .form-control::-moz-placeholder          {@content}
+  .form-control:-ms-input-placeholder      {@content}
+
+  ::-webkit-input-placeholder {@content}
+  :-moz-placeholder           {@content}
+  ::-moz-placeholder          {@content}
+  :-ms-input-placeholder      {@content}
+}
+
+
+// Text selection
+@mixin selection {
+  ::selection      {@content}
+  ::-moz-selection {@content}
+}

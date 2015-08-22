@@ -1,0 +1,28 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+  float: left;
+  margin-left: 5px;
+}
+
+.header {
+  clear: both;
+  overflow: hidden;
+}
+
+.card {
+  width: 33.333%;
+  float: left;
+}
+
+md-checkbox {
+  float: right;
+  margin-top: 35px;
+}
+
+md-progress-linear {
+  top: 50%;
+  position: absolute;
+}
