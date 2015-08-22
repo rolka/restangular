@@ -12,9 +12,45 @@ h1 {
   overflow: hidden;
 }
 
+.columns {
+  -webkit-column-count: 3;
+  -webkit-column-gap: 10px;
+  -webkit-column-fill: auto;
+  -moz-column-count: 3;
+  -moz-column-gap: 10px;
+  -moz-column-fill: auto;
+  column-count: 3;
+  column-gap: 15px;
+  column-fill: auto;
+}
+
+@media only screen and (max-width : 970px) {
+  .columns {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+  }
+}
+
+@media only screen and (max-width : 570px) {
+  .columns {
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1;
+  }
+}
+
 .card {
-  width: 33.333%;
-  float: left;
+  display: inline-block;
+  -webkit-column-break-inside: avoid;
+  -moz-column-break-inside: avoid;
+  column-break-inside: avoid;
+}
+
+.events {
+  .noevent {
+    display: none;
+  }
 }
 
 md-checkbox {
@@ -22,7 +58,7 @@ md-checkbox {
   margin-top: 35px;
 }
 
-md-progress-linear {
-  top: 50%;
-  position: absolute;
+md-progress-linear[md-mode="indeterminate"] {
+  width: 50%;
+  margin: 35% auto;
 }

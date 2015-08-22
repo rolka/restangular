@@ -1,5 +1,5 @@
 <div class="header">
-  <h1>Facebook News Feeds</h1>
+  <h1>Pinterbook Feeds</h1>
 
   <md-checkbox class="md-warn" aria-label="Checkbox" ng-model="vm.checkbox">
     Show events only
@@ -8,18 +8,22 @@
 
 <h2 ng-if="vm.posts.length < 1">No posts found</h2>
 
-<div class="card" ng-repeat="post in vm.posts">
-  <md-card>
-    <img ng-src="{{post.full_picture}}" class="md-card-image">
-    <md-card-content>
-      <h2 class="md-title">{{post.name}}</h2>
-      <h3>{{post.from.name}}: {{post.created_time | date:'dd/MM/yyyy'}}</h3>
-      <p>{{post.message}}</p>
-    </md-card-content>
-    <div class="md-actions" layout="row" layout-align="end center">
-      <a class="md-button" target="_blank" ng-href="{{post.link}}">
-        Learn more >
-      </a>
-    </div>
-  </md-card>
+<div ng-class="{events: vm.checkbox}" class="columns">
+  <div class="card"
+       ng-repeat="post in vm.posts"
+       ng-class="{noevent: post.type !== 'event'}">
+    <md-card>
+      <img ng-src="{{post.full_picture}}" class="md-card-image">
+      <md-card-content>
+        <h2 class="md-title">{{post.name}}</h2>
+        <h3>{{post.from.name}}: {{post.created_time | date:'dd/MM/yyyy'}}</h3>
+        <p>{{post.message}}</p>
+      </md-card-content>
+      <div class="md-actions" layout="row" layout-align="end center">
+        <a class="md-button" target="_blank" ng-href="{{post.link}}">
+          Learn more >
+        </a>
+      </div>
+    </md-card>
+  </div>
 </div>
